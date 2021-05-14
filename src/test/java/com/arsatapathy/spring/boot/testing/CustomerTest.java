@@ -51,9 +51,6 @@ public class CustomerTest {
 
     @Test
     public void addCustomer() throws Exception {
-        Customer ashish = new Customer((long) 123, "Ashish", "Bengaluru", (long) 123);
-        Customer snighda = new Customer((long) 456, "Snighda", "Bengaluru", (long) 123);
-
         mockMvc.perform(post("/customers/customer/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"customerId\":123,\"customerName\":\"Ashish\",\"customerAddress\":\"Bengaluru\",\"customerPhone\":123}"))
