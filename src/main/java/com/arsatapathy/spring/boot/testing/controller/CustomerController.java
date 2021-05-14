@@ -1,15 +1,11 @@
 package com.arsatapathy.spring.boot.testing.controller;
 
 import com.arsatapathy.spring.boot.testing.model.Customer;
-import com.arsatapathy.spring.boot.testing.repository.CustomerRepository;
 import com.arsatapathy.spring.boot.testing.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +17,12 @@ public class CustomerController {
     @Autowired
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public @ResponseBody
+    String home() {
+        return "Welcome!";
     }
 
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
